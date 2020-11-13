@@ -6,7 +6,7 @@ const routes = require("./router")
 
 //static assets
 app.use("/public", express.static("public"))
-app.use("/routes", routes)
+app.use("/app", routes)
 //body-parser
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
