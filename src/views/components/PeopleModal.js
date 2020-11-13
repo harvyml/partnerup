@@ -24,8 +24,8 @@ function PeopleModal(props) {
           <AllPeople people={people} />
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.nextpage}>Next page</Button>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button variant="dark" onClick={props.nextpage}>Next page</Button>
+          <Button variant="dark" onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
     );

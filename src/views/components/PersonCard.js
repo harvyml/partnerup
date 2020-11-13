@@ -11,7 +11,7 @@ const PersonCard = props => {
                 <Card.Text>
                     El match de tu busqueda fue de {average.toFixed(2)}
                 </Card.Text>
-                <Button className="yellow-bg" variant="dark" href={`https://bio.torre.co/en/${username}`}>See Genome</Button>
+                <Button className="yellow-bg" variant="light" href={`https://bio.torre.co/en/${username}`}>See Genome</Button>
             </Card.Body>
         </Card>
     )

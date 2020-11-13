@@ -198,7 +198,9 @@ const SearchPeople = () => {
                         </Col>
                         */}
                         </Form.Row>
-                        <Button className="torre-light" onClick={requestInfo}>Search People</Button>
+                        <div className="center reduced-container">
+                            <Button className="yellow-bg space-on-top" variant="light" onClick={requestInfo}>Search People</Button>
+                        </div>
                     </Form>
                 </div>
             </Col>
