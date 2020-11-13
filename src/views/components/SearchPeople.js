@@ -98,18 +98,6 @@ const SearchPeople = () => {
                     <div className="divider"></div>
                     <Form>
                         <Form.Row className="align-items-center">
-                        <Col xs="auto" sm={12} md={12}>
-                            <h3 className="subtitle">Your Username</h3>
-                            <Form.Label htmlFor="inlineFormInputName2" srOnly>
-                                Name
-                            </Form.Label>
-                            <Form.Control
-                                className="mb-2 mr-sm-2"
-                                id="inlineFormInputName2"
-                                placeholder="Jane Doe"
-                                onChange={updateUsername}
-                            />
-                        </Col>
                         <Col xs="auto" sm={6} md={6} className="my-1">
                             <h3 className="subtitle center">You want you partners best skill to be: </h3>
                             <Form.Label className="mr-sm-2" htmlFor="inlineFormCustomSelect" srOnly>

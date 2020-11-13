@@ -58,4 +58,8 @@ body{
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.yellow-bg{
+    background: var(--light);
+    color: var(--main_bg);
+}
 /* Info component */

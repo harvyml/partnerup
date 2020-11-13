@@ -9,9 +9,9 @@ const PersonCard = props => {
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>
-                El match contigo fue de {average}
+                    El match de tu busqueda fue de {average.toFixed(2)}
                 </Card.Text>
-                <Button variant="primary" href={`https://bio.torre.co/en/${username}`}>See Genome</Button>
+                <Button className="yellow-bg" variant="dark" href={`https://bio.torre.co/en/${username}`}>See Genome</Button>
             </Card.Body>
         </Card>
     )
