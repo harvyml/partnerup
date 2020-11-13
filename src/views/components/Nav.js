@@ -8,7 +8,7 @@ const Nav = props => {
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text className="torre-light">
-                Signed in as: <a href="#login">Mark Otto</a>
+                Launching <a href="#login">Partner Up</a>
                 </Navbar.Text>
             </Navbar.Collapse>
         </Navbar>

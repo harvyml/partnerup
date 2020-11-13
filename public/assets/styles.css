@@ -5,19 +5,42 @@
 
 :root{
     --main_color: #ffffff;
-    --main_bg: #27292D;
+    --main_bg: #010101;
+    --secondary_bg: #27292D;
     --light: #CDDC39;
 }
-
+/* general styles */
+.center{
+    text-align: center;
+}
+.title{
+    font-weight: 400 !important;
+    font-size: 1.3rem;
+}
+.space-on-top{
+    margin-top: 30px;
+}
+h1{
+    font-weight: 400 !important;
+}
+/*=================*/
+body{
+    background-color: var(--main_bg);
+}
 .app-body{
     background-color: var(--main_bg);
     color: var(--main_color);
 }
 .torre-dark{
     color: var(--main_color);
-    background-color: var(--main_bg);
+    background-color: var(--secondary_bg);
 }
-
 .torre-light{
     color: var(--light) !important;
 }
+.reduced-container{
+    width: 60%;
+    margin: auto;
+}
+
+/* Info component */
