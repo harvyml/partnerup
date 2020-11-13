@@ -2,19 +2,18 @@ const express = require("express")
 const app = express()
 const axios = require("axios")
 const bodyParser = require("body-parser")
+const routes = require("./router")
 
+//static assets
+app.use("/public", express.static("public"))
+app.use("/routes", routes)
 //body-parser
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-
-app.get("/", (req, res) => {
-    res.json({message: "hola"})
-})
-
 /**
  * function to get my skills
  */
-app.get("/user/:username", (req, res) => {
+app.get("/api/user/:username", (req, res) => {
     const {username} = req.params
     console.log(username)
     axios.get(`https://bio.torre.co/api/bios/${username}`).then(snap => {
@@ -26,8 +25,8 @@ app.get("/user/:username", (req, res) => {
     })
 })
 
-app.get("/users", (req, res) => {
-    axios.post(`https://search.torre.co/people/_search/?offset=8&size=${req.query.size}&aggregate=8`, {}, {
+app.get("/api/users", (req, res) => {
+    axios.post(`https://search.torre.co/people/_search/?offset=${req.query.offset}&size=${req.query.size}&aggregate=8`, {}, {
         "Content-Length": 143295 
     }).then(snap => {
         console.log(snap.data.results.length)

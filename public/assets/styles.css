@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --main_color: #ffffff;
+    --main_bg: #27292D;
+    --light: #CDDC39;
+}
+
+.app-body{
+    background-color: var(--main_bg);
+    color: var(--main_color);
+}
+.torre-dark{
+    color: var(--main_color);
+    background-color: var(--main_bg);
+}
+
+.torre-light{
+    color: var(--light) !important;
+}
