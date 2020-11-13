@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Find the right cofounder for your project",
   "main": "index.js",
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "scripts": {
     "test": "test",
     "start": "nodemon index.js",
