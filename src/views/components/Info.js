@@ -13,10 +13,9 @@ const Info = props => {
                         <div className="description center">
                             <p>
                             Partner Up is a project for the <span className="torre-light">entrepreneurial</span> style of guys who dont have a cofounder to start a project with, 
-                            we will match your <span className="torre-light">soft skills</span> along with the idea you have and find you <span className="torre-light">great people</span> that may be interested in working with you.
+                            we will match your <span className="torre-light">soft skills</span> along with the skills you may not have and find <span className="torre-light">great people</span> that may be interested in collaborating with you.
                             </p>
                         </div>
-
                     </div>
                 </Col>
             </Row>  

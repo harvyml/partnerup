@@ -15,14 +15,7 @@ app.use(bodyParser.json())
  */
 app.get("/api/user/:username", (req, res) => {
     const {username} = req.params
-    console.log(username)
-    axios.get(`https://bio.torre.co/api/bios/${username}`).then(snap => {
-        console.log(snap.data)
-        res.json(snap.data.strengths)
-    }).catch(err => {
-        console.log(err.message)
-        res.json(err)
-    })
+    getStrengths(username, req, res)
 })
 
 app.get("/api/users", (req, res) => {
@@ -36,15 +29,19 @@ app.get("/api/users", (req, res) => {
     })
 })
 
-
 /**
- * the algorithm will determine how likely it is for someone to partner up with someone alse
- * The algorithm will wvaluate the "openTo" and "skills" keys from the torre api in order to positionate a person
+ * returns an array with the skills
+ * @param {*} username 
  */
-function main(){
-
+function getStrengths(username, req, res){
+    axios.get(`https://bio.torre.co/api/bios/${username}`).then(snap => {
+        console.log(snap.data)
+        res.json(snap.data.strengths)
+    }).catch(err => {
+        console.log(err.message)
+        res.json(err)
+    })
 }
-
 
 /**
  * evaluate skills
@@ -74,7 +71,7 @@ function skills(people, prefered_user_skills, default_skills = ["Leadership", "C
 }
 
 /**
- * Determines the people in which an openTo category appears the most in a descending order
+ * Determines the people in which an openTo category appears the most in a descending order (NOT IMPLEMENTED YET IN THE APP, BUT ALGORITHM WORKS)
  * @param {Array} people 
  * @param {Array} user_openTo this are the arguments in which the user wants to get a partner to work with
  * @param {Array} default_openTo 
