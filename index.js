@@ -26,12 +26,10 @@ app.get("/api/user/:username", (req, res) => {
 })
 
 app.get("/api/users", (req, res) => {
-    axios.post(`https://search.torre.co/people/_search/?offset=${req.query.offset}&size=${req.query.size}&aggregate=8`, {}, {
-        "Content-Length": 143295 
-    }).then(snap => {
+    axios.post(`https://search.torre.co/people/_search/?offset=${req.query.offset}&size=${req.query.size}&aggregate=8`, {}).then(snap => {
         console.log(snap.data.results.length)
         //res.json(snap.data)
-        res.json(skills(snap.data.results, [req.query.array_of_skills]))
+        res.json(skills(snap.data.results, req.query.array_of_skills))
         //res.json(openTo(snap.data.results, ["freelance-gigs", "hiring"]))
     }).catch(err => {
         res.json({err: err.message})
@@ -68,7 +66,9 @@ function skills(people, prefered_user_skills, default_skills = ["Leadership", "C
             
         }
         avg_skill = avg_skill / default_skills.length
-        best_people.push({username: person.username, average: avg_skill})
+        if(avg_skill > 0){
+            best_people.push({username: person.username, average: avg_skill, picture: person.picture, name: person.name})
+        }
     })
     return best_people.sort(compareValues("average", "desc"))
 }
