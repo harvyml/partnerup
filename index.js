@@ -27,17 +27,12 @@ app.get("/user/:username", (req, res) => {
 })
 
 app.get("/users", (req, res) => {
-    const {offset, size, aggregate} = req.query
-    console.log(offset, size, aggregate)
-    axios.post(`https://search.torre.co/people/_search/`, {
-        offset,
-        size:1000,
-        aggregate
+    axios.post(`https://search.torre.co/people/_search/?offset=8&size=${req.query.size}&aggregate=8`, {}, {
+        "Content-Length": 143295 
     }).then(snap => {
-        console.log(snap.data)
-
-        res.json(snap.data)
-        //res.json(skills(snap.data.results, []))
+        console.log(snap.data.results.length)
+        //res.json(snap.data)
+        res.json(skills(snap.data.results, [req.query.array_of_skills]))
         //res.json(openTo(snap.data.results, ["freelance-gigs", "hiring"]))
     }).catch(err => {
         res.json({err: err.message})
@@ -128,22 +123,5 @@ function compareValues(key, order = 'asc') {
     };
 }
 
-//fixes circular json
-function simpleStringify (object){
-    var simpleObject = {};
-    for (var prop in object ){
-        if (!object.hasOwnProperty(prop)){
-            continue;
-        }
-        if (typeof(object[prop]) == 'object'){
-            continue;
-        }
-        if (typeof(object[prop]) == 'function'){
-            continue;
-        }
-        simpleObject[prop] = object[prop];
-    }
-    return JSON.stringify(simpleObject); // returns cleaned up JSON
-};
 
 app.listen(3000, () => console.log("listening on port 3000"))
